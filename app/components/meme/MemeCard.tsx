@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/app/components/ui/Button";
 
-// File: components/cards/MemeCard.tsx
 export function MemeCard() {
   return (
     <div className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden mb-6 w-full max-w-md">
@@ -13,7 +12,7 @@ export function MemeCard() {
           height={500}
           src="/placeholder.png"
           objectFit="cover"
-          placeholder="empty"  // Use placeholder prop
+          placeholder="empty" // Use placeholder prop
           width={500}
         />
       </div>
@@ -32,7 +31,7 @@ export function MemeCard() {
             height={40}
             src="/placeholder.svg"
             objectFit="cover"
-            placeholder="empty"  // Use placeholder prop
+            placeholder="empty" // Use placeholder prop
             width={40}
           />
           <p className="font-semibold">
@@ -43,13 +42,23 @@ export function MemeCard() {
       {/* Button Section */}
       <div className="p-4">
         <div className="flex space-x-2">
-        <div className="flex space-x-2">
-          <Button variant="outline" className="flex-1">Super Funny</Button>
-          <Button variant="outline" className="flex-1">Funny</Button>
-          <Button variant="outline" className="flex-1">Mid</Button>
-          <Button variant="outline" className="flex-1">Not Funny</Button>
-          <Button variant="outline" className="flex-1">Really Not</Button>
-        </div>
+          <div className="flex space-x-2">
+            <Button variant="outline" className="flex-1">
+              Super Funny
+            </Button>
+            <Button variant="outline" className="flex-1">
+              Funny
+            </Button>
+            <Button variant="outline" className="flex-1">
+              Mid
+            </Button>
+            <Button variant="outline" className="flex-1">
+              Not Funny
+            </Button>
+            <Button variant="outline" className="flex-1">
+              Really Not
+            </Button>
+          </div>
         </div>
       </div>
     </div>
