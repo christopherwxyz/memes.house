@@ -1,7 +1,7 @@
-// pages/index.js
-import { Profile } from "@/app/components/ui/Profile";
+import Image from "next/image";
 import { MemeCard } from "@/app/components/meme/MemeCard";
 import { VoteDetails } from "@/app/components/vote/VoteDetails";
+import ConnectButton from "./components/web3/ConnectButton";
 
 export default function Home() {
   return (
@@ -18,10 +18,12 @@ export default function Home() {
 function Header() {
   return (
     <div className="flex justify-between items-center mb-6">
-      <h1 className="text-2xl font-bold">memes.house</h1>
+      <div className="flex items-center gap-4">
+        <Image src="/logo.png" alt="logo" height={100} width={100} />
+      </div>
       <div className="flex items-center gap-4">
         <div className="px-4 py-2 border border-green-500 text-green-500 rounded hover:bg-green-500 hover:text-white transition">
-          <Profile />
+          <ConnectButton />
         </div>
       </div>
     </div>
