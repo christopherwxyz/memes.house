@@ -1,3 +1,4 @@
+import Image from "next/image";
 // File: components/voting/VoteDetails.tsx
 export function VoteDetails() {
   return (
@@ -5,7 +6,7 @@ export function VoteDetails() {
       <h2 className="text-2xl font-bold mb-4">Vote Details</h2>
       {/* Chart Section */}
       <div className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
-        <img
+        <Image
           alt="Distribution of votes"
           className="w-full h-auto"
           height="300"
