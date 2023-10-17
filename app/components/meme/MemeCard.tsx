@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Button } from "@/app/components/ui/Button";
 
 export function MemeCard() {
   return (
@@ -39,25 +38,15 @@ export function MemeCard() {
           </p>
         </div>
       </div>
-      {/* Button Section */}
+      {/* button Section */}
       <div className="p-4">
         <div className="flex space-x-2">
           <div className="flex space-x-2">
-            <Button variant="outline" className="flex-1">
-              Super Funny
-            </Button>
-            <Button variant="outline" className="flex-1">
-              Funny
-            </Button>
-            <Button variant="outline" className="flex-1">
-              Mid
-            </Button>
-            <Button variant="outline" className="flex-1">
-              Not Funny
-            </Button>
-            <Button variant="outline" className="flex-1">
-              Really Not
-            </Button>
+            <button className="flex-1">Super Funny</button>
+            <button className="flex-1">Funny</button>
+            <button className="flex-1">Mid</button>
+            <button className="flex-1">Not Funny</button>
+            <button className="flex-1">Really Not</button>
           </div>
         </div>
       </div>
