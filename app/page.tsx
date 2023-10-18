@@ -1,49 +1,53 @@
 import Image from "next/image";
 import { MemeCard } from "@/app/components/meme/MemeCard";
 import { VoteDetails } from "@/app/components/vote/VoteDetails";
-import ConnectButton from "./components/web3/ConnectButton";
+import ConnectButton from "@/app/components/web3/ConnectButton";
+import CanvasBackground from "@/app/components/ui/CanvasBackground";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="dark:bg-gray-800 p-6">
-        <Header />
-        <MemeGallery />
-        <VoteDetailsPanel />
-      </div>
-    </main>
+    <div className="relative min-h-screen p-24">
+      <CanvasBackground />
+      <Header />
+      <main className="flex flex-1 dark:bg-gray-800 p-6 mt-16">  {/* Added mt-16 to compensate for the fixed header */}
+        <div className="flex-1 flex flex-col">
+          <MemeGallery />
+          <VoteDetailsPanel />
+        </div>
+      </main>
+    </div>
   );
 }
 
 function Header() {
   return (
-    <div className="flex justify-between items-center mb-6">
-      <div className="flex items-center gap-4">
-        <Image src="/logo.png" alt="logo" height={100} width={100} />
+    <nav className="fixed top-0 left-0 w-full flex justify-between p-3 z-10 bg-opacity-75 backdrop-blur-md">
+      <div>
+        <div className="flex items-center">
+          <Image src="/logo.png" alt="logo" height={60} width={60} />
+        </div>
       </div>
-      <div className="flex items-center gap-4">
-        <div className="px-4 py-2 border border-green-500 text-green-500 rounded hover:bg-green-500 hover:text-white transition">
+      <div>
+        <div className="flex items-center">
           <ConnectButton />
         </div>
       </div>
-    </div>
+    </nav>
   );
 }
 
 function MemeGallery() {
   return (
-    <div className="flex flex-wrap justify-center gap-6">
-      <div>
-        <MemeCard />
-        {/* Other meme cards... */}
-      </div>
+    <div className="flex justify-center w-full mb-6">
+      <MemeCard />
+      {/* Other meme cards... */}
     </div>
   );
 }
 
 function VoteDetailsPanel() {
   return (
-    <div className="fixed bottom-0 right-0 flex items-center justify-center z-50 mb-4 mr-4">
+    <div className="flex justify-center w-full mb-6">
       <VoteDetails />
     </div>
   );

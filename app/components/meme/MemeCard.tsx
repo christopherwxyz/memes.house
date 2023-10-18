@@ -1,18 +1,26 @@
 import Image from "next/image";
 
 export function MemeCard() {
+  const votingOptions = [
+    { emoji: "😂", text: "Amazing", index: 1 },
+    { emoji: "😄", text: "Good", index: 2 },
+    { emoji: "😐", text: "Mid", index: 3 },
+    { emoji: "🙄", text: "Oof", index: 4 },
+    { emoji: "😬", text: "Awful", index: 5 },
+  ];
+
   return (
     <div className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden mb-6 w-full max-w-md">
       {/* Image Section */}
-      <div className="relative w-full" style={{ paddingTop: "100%" }}>
+      <div className="w-full h-64 relative">
         <Image
           alt="Meme image"
-          className="absolute top-0 left-0 w-full h-auto"
-          height={500}
-          src="/placeholder.png"
+          className="object-cover w-full h-full"
+          height={256}
+          src="https://i.imgur.com/cSZX45B.jpg"
           objectFit="cover"
           placeholder="empty" // Use placeholder prop
-          width={500}
+          width={256}
         />
       </div>
       {/* Info Section */}
@@ -40,16 +48,23 @@ export function MemeCard() {
       </div>
       {/* button Section */}
       <div className="p-4">
-        <div className="flex space-x-2">
-          <div className="flex space-x-2">
-            <button className="flex-1">Super Funny</button>
-            <button className="flex-1">Funny</button>
-            <button className="flex-1">Mid</button>
-            <button className="flex-1">Not Funny</button>
-            <button className="flex-1">Really Not</button>
-          </div>
+        <div className="grid grid-cols-5 gap-2">
+          {votingOptions
+            .sort((a, b) => a.index - b.index)
+            .map((option, index) => (
+              <button
+                key={index}
+                className="flex flex-col items-center bg-gray-200 text-gray-700 rounded font-mono p-2"
+              >
+                <div className="text-2xl pb-2">{option.emoji}</div>
+                <div>{option.text}</div>
+              </button>
+            ))}
         </div>
       </div>
+
+      {/* Comment Section */}
+      {/* TODO: Pull this in. */}
     </div>
   );
 }
