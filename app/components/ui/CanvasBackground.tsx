@@ -11,12 +11,11 @@ const CanvasBackground: React.FC = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     const rows = 5;  // Halved the number of rows
     const columns = 10;  // Kept the same number of columns for equal spacing width-wise
-    const cellWidth = canvas.width / columns;
     for (let i = 0; i < rows; i++) {
       for (let j = 0; j < columns; j++) {
         const emoji = emojis[Math.floor(Math.random() * emojis.length)];
-        const x = j * cellWidth + cellWidth / 2;
-        const y = Math.random() * canvas.height;  // Random vertical position
+        const x = Math.random() * canvas.width + 1;  // Random horizontal position
+        const y = Math.random() * canvas.height + 1;  // Random vertical position
         ctx.save();
         ctx.globalAlpha = 0.1;  // Made emojis barely visible
         ctx.translate(x, y);
