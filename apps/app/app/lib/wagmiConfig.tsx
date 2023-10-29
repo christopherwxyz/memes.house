@@ -33,7 +33,7 @@ export const { chains, publicClient, webSocketPublicClient } = configureChains(
 
 	// Prefer Alchemy, then Infura, then fallback
 	[
-		infuraProvider({ apiKey: `${process.env.NEXT_PUBLIC_INFURA_RPC_KEY}` }),
+		// infuraProvider({ apiKey: `${process.env.NEXT_PUBLIC_INFURA_RPC_KEY}` }),
 		alchemyProvider({ apiKey: `${process.env.NEXT_PUBLIC_ALCHEMY_RPC_KEY}` }),
 		publicProvider(),
 	],
@@ -56,12 +56,12 @@ const connectors: Connector[] = [
 			shimDisconnect: true,
 		},
 	}),
-	new LedgerConnector({
-		chains,
-		options: {
-			projectId: `${process.env.NEXT_PUBLIC_LEDGER_PROJECT_ID}`,
-		},
-	}),
+	// new LedgerConnector({
+	// 	chains,
+	// 	options: {
+	// 		projectId: `${process.env.NEXT_PUBLIC_LEDGER_PROJECT_ID}`,
+	// 	},
+	// }),
 	new CoinbaseWalletConnector({ chains, options: { appName: metadata.name } }),
 ]
 

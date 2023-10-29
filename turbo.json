@@ -3,6 +3,7 @@
     "pipeline": {
       "build": {
         "dependsOn": ["^build"],
+        "env": ["NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID", "NEXT_PUBLIC_ALCHEMY_RPC_KEY"],
         "outputs": [".next/**", "!.next/cache/**", "dist/**"]
       },
       "test": {
