@@ -1,12 +1,22 @@
 {
   "name": "memes.house",
-  "version": "1.0.0",
-  "description": "memes.house monorepo",
+  "repository": "https://github.com/christopherwxyz/memes.house.git",
+  "license": "MIT",
   "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "devDependencies": {
+    "eslint": "^8.28.0",
+    "eslint-config-turbo": "latest",
+    "turbo": "^1.8.3"
+  }
 }
