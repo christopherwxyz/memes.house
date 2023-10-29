@@ -1,30 +1,26 @@
 
-> app@0.1.0 build
+> app@0.1.0 build /Users/christopherw/Workspaces/memes.house/apps/app
 > next build
 
    ▲ Next.js 14.0.0
 
    Creating an optimized production build ...
- ✓ Compiled successfully
-   Linting and checking validity of types ...
-   Collecting page data ...
-   Generating static pages (0/5) ...
-   Generating static pages (1/5) 
-   Generating static pages (2/5) 
-   Generating static pages (3/5) 
- ✓ Generating static pages (5/5) 
-   Finalizing page optimization ...
-   Collecting build traces ...
+ ⚠ Custom webpack configuration is detected. When using a custom webpack configuration, the Webpack build worker is disabled by default. To force enable it, set the "experimental.webpackBuildWorker" option to "true". Read more: https://nextjs.org/docs/messages/webpack-build-worker-opt-out
+Failed to compile.
 
-Route (app)                              Size     First Load JS
-┌ ○ /                                    5.27 kB        92.7 kB
-└ ○ /_not-found                          880 B          88.3 kB
-+ First Load JS shared by all            87.4 kB
-  ├ chunks/1dd3208c-6d958797006a1dce.js  53.2 kB
-  ├ chunks/53-198a1ab09483e1d3.js        32.3 kB
-  ├ chunks/main-app-16c392e6f6a6588e.js  230 B
-  └ chunks/webpack-bc466917885f1332.js   1.69 kB
+./app/layout.tsx
+Module not found: Can't resolve '@web3modal/wagmi/react'
+
+https://nextjs.org/docs/messages/module-not-found
+
+./app/lib/wagmiConfig.tsx
+Module not found: Can't resolve '@web3modal/wagmi/react'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/layout.tsx
 
 
-○  (Static)  prerendered as static HTML
-
+> Build failed because of webpack errors
+ ELIFECYCLE  Command failed with exit code 1.
