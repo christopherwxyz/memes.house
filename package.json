@@ -1,32 +1,22 @@
 {
   "name": "memes.house",
-  "version": "0.1.0",
+  "repository": "https://github.com/christopherwxyz/memes.house.git",
+  "license": "MIT",
   "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@headlessui/react": "^1.7.17",
-    "@radix-ui/themes": "^2.0.0",
-    "@web3modal/wagmi": "^3.1.0",
-    "next": "^13.5.4",
-    "react": "^18",
-    "react-dom": "^18",
-    "viem": "^1.16.6",
-    "wagmi": "^1.4.4"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.4.16",
-    "eslint": "^8",
-    "eslint-config-next": "13.5.4",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.3",
-    "typescript": "^5"
+    "eslint": "^8.28.0",
+    "eslint-config-turbo": "latest",
+    "turbo": "^1.8.3"
   }
 }
