@@ -4,6 +4,7 @@ import { VoteDetails } from "@/app/components/vote/VoteDetails";
 import ConnectButton from "@/app/components/web3/ConnectButton";
 import VotingOptions from "@/app/components/vote/VotingOptions";
 import { Box, Container, Em, Flex, Text } from "@radix-ui/themes";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -18,10 +19,12 @@ function Header() {
   return (
     <nav className="fixed top-0 left-0 w-full flex items-center justify-between p-3 z-10 bg-opacity-75 backdrop-blur-md">
       {/* Logo with typographic for memes.house */}
-      <div className="flex items-center space-x-2">
-      <Text>
-        <Em>memes.house</Em>
-      </Text>
+      <div className="flex items-center space-x-2 pl-10">
+        <Link href="/">
+          <Text size={"8"} weight="medium">
+            <Em>memes.house</Em>
+          </Text>
+        </Link>
       </div>
       {/* Connect Button */}
       <ConnectButton />
