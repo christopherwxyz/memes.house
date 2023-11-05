@@ -1,6 +1,7 @@
 "use client";
 import "./globals.css";
-import type { Metadata } from "next";
+import '@radix-ui/themes/styles.css';
+import { Theme, ThemePanel } from '@radix-ui/themes';
 import { Inter } from "next/font/google";
 
 import { createWeb3Modal, defaultWagmiConfig } from "@web3modal/wagmi/react";
@@ -25,9 +26,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <WagmiConfig config={wagmiConfig}>{children}</WagmiConfig>
+        <Theme appearance="dark" grayColor="gray" accentColor="iris" scaling="100%" panelBackground="solid" radius="medium">
+          <WagmiConfig config={wagmiConfig}>{children}</WagmiConfig>
+        </Theme>
       </body>
     </html>
   );

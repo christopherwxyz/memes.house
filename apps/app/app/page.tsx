@@ -2,52 +2,58 @@ import Image from "next/image";
 import { MemeCard } from "@/app/components/meme/MemeCard";
 import { VoteDetails } from "@/app/components/vote/VoteDetails";
 import ConnectButton from "@/app/components/web3/ConnectButton";
-import CanvasBackground from "@/app/components/ui/CanvasBackground";
+import VotingOptions from "@/app/components/vote/VotingOptions";
+import { Box, Container, Em, Flex, Text } from "@radix-ui/themes";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen p-24">
-      <CanvasBackground />
+    <div className="relative min-h-screen p-24"> {/* Set a light gray background */}
       <Header />
-      <main className="flex flex-1 dark:bg-gray-800 p-6 mt-16">  {/* Added mt-16 to compensate for the fixed header */}
-        <div className="flex-1 flex flex-col">
-          <MemeGallery />
-          <VoteDetailsPanel />
-        </div>
-      </main>
+      <MainContent />
     </div>
   );
 }
 
 function Header() {
   return (
-    <nav className="fixed top-0 left-0 w-full flex justify-between p-3 z-10 bg-opacity-75 backdrop-blur-md">
-      <div>
-        <div className="flex items-center">
-          <Image src="/logo.png" alt="logo" height={60} width={60} />
-        </div>
+    <nav className="fixed top-0 left-0 w-full flex items-center justify-between p-3 z-10 bg-opacity-75 backdrop-blur-md">
+      {/* Logo with typographic for memes.house */}
+      <div className="flex items-center space-x-2">
+      <Text>
+        <Em>memes.house</Em>
+      </Text>
       </div>
-      <div>
-        <div className="flex items-center">
-          <ConnectButton />
-        </div>
-      </div>
+      {/* Connect Button */}
+      <ConnectButton />
     </nav>
+  );
+}
+
+function MainContent() {
+  return (
+    <main className="flex flex-1 flex-col p-6 mt-16"> {/* Combined classes */}
+      <MemeGallery />
+      <VoteDetailsPanel />
+    </main>
   );
 }
 
 function MemeGallery() {
   return (
     <div className="flex justify-center w-full mb-6">
-      <MemeCard />
-      {/* Other meme cards... */}
+      <Container size="3">
+        <Flex className="flex-col items-center space-y-4" direction="column" align="center" gap="4">
+          <MemeCard />
+          <VotingOptions />
+        </Flex>
+      </Container>
     </div>
   );
 }
 
 function VoteDetailsPanel() {
   return (
-    <div className="flex justify-center w-full mb-6">
+    <div className="flex justify-center w-full">
       <VoteDetails />
     </div>
   );
