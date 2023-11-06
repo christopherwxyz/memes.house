@@ -5,6 +5,7 @@ import ConnectButton from "@/app/components/web3/ConnectButton";
 import VotingOptions from "@/app/components/vote/VotingOptions";
 import { Box, Container, Em, Flex, Text } from "@radix-ui/themes";
 import Link from "next/link";
+import { Comments } from "@/app/components/comments/Comments";
 
 export default function Home() {
   return (
@@ -21,8 +22,8 @@ function Header() {
       {/* Logo with typographic for memes.house */}
       <div className="flex items-center space-x-2 pl-10">
         <Link href="/">
-          <Text size={"8"} weight="medium">
-            <Em>memes.house</Em>
+          <Text size={"8"} weight="regular">
+            <Em>memes house</Em>
           </Text>
         </Link>
       </div>
@@ -34,22 +35,23 @@ function Header() {
 
 function MainContent() {
   return (
-    <main className="flex flex-1 flex-col p-6 mt-16"> {/* Combined classes */}
-      <MemeGallery />
-      <VoteDetailsPanel />
+    <main className="flex flex-col p-6">
+      <Flex className="flex-col space-y-4" direction="column" gap="1">
+        <MemeGallery />
+        <Comments />
+        <VoteDetailsPanel />
+      </Flex>
     </main>
   );
 }
 
 function MemeGallery() {
   return (
-    <div className="flex justify-center w-full mb-6">
-      <Container size="3">
-        <Flex className="flex-col items-center space-y-4" direction="column" align="center" gap="4">
-          <MemeCard />
-          <VotingOptions />
-        </Flex>
-      </Container>
+    <div>
+      <Flex className="flex-col items-center space-y-4" direction="column" align="center" gap="1">
+        <MemeCard />
+        <VotingOptions />
+      </Flex>
     </div>
   );
 }
