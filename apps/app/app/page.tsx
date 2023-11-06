@@ -9,7 +9,7 @@ import { Comments } from "@/app/components/comments/Comments";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen p-24"> {/* Set a light gray background */}
+    <div className="relative min-h-screen"> {/* Set a light gray background */}
       <Header />
       <MainContent />
     </div>
@@ -35,7 +35,7 @@ function Header() {
 
 function MainContent() {
   return (
-    <main className="flex flex-col p-6">
+    <main className="flex flex-col p-6 pt-24">
       <Flex className="flex-col space-y-4" direction="column" gap="1">
         <MemeGallery />
         <Comments />
