@@ -1,9 +1,37 @@
 import Image from "next/image";
+import { baseGoerli } from 'viem/chains'
+import { useContractRead, useContractReads } from 'wagmi'
+import { contract } from '@/app/lib/contract'
+import { getRelativeDate } from "@/app/lib/utils";
+
 import { Avatar, Badge, Box, Container, Em, Flex, Separator, Text } from "@radix-ui/themes";
-import * as AspectRatio from '@radix-ui/react-aspect-ratio';
+
+interface MarketData {
+  0: number;
+  1: {
+    mean: bigint;
+    standardDeviation: bigint;
+    sumOfSquaredVotes: bigint;
+    sumOfVotes: bigint;
+    totalStake: bigint;
+    totalVoters: bigint;
+    voterAddresses: any[]; // You can replace 'any[]' with a more specific type if needed
+    votingEndTime: bigint;
+    votingEnded: boolean;
+  };
+}
 
 
 export function MemeCard() {
+  const { data: data }: { data: MarketData | undefined } = useContractRead({
+    ...contract,
+    chainId: baseGoerli.id,
+    functionName: 'getMarketState',
+    args: ["0x9c2b59e75b5a6a61f2e584d79e5a26866cd0fa0b"]
+  })
+
+  const votingEndsDate = data ? getRelativeDate(Number(data[1].votingEndTime)) : null;
+
   return (
     <div className="w-fit overflow-hidden rounded-md">
       <Box height="auto">
@@ -31,7 +59,7 @@ export function MemeCard() {
             <Box right="auto">
               <Badge className="m-2" color="green">
                 <Text size="2" weight="bold">
-                  0.1 ETH
+                  End Date: {votingEndsDate || 'Loading...'}
                 </Text>
               </Badge>
             </Box>

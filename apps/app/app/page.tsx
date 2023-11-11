@@ -1,4 +1,8 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useState } from "react";
+import { baseGoerli } from 'viem/chains'
+
 import { MemeCard } from "@/app/components/meme/MemeCard";
 import { VoteDetails } from "@/app/components/vote/VoteDetails";
 import ConnectButton from "@/app/components/web3/ConnectButton";
@@ -6,8 +10,12 @@ import VotingOptions from "@/app/components/vote/VotingOptions";
 import { Box, Container, Em, Flex, Text } from "@radix-ui/themes";
 import Link from "next/link";
 import { Comments } from "@/app/components/comments/Comments";
-
+import { useAccount, useContractRead, useContractReads } from 'wagmi'
+import { InjectedConnector } from 'wagmi/connectors/injected'
+ 
 export default function Home() {
+  const { isConnected } = useAccount();
+
   return (
     <div className="relative min-h-screen"> {/* Set a light gray background */}
       <Header />
@@ -23,7 +31,7 @@ function Header() {
       <div className="flex items-center space-x-2 pl-10">
         <Link href="/">
           <Text size={"8"} weight="regular">
-            <Em>memes house</Em>
+            <Em>Memes House</Em>
           </Text>
         </Link>
       </div>

@@ -1,14 +1,10 @@
 import { createWeb3Modal } from '@web3modal/wagmi/react'
 import { configureChains, Connector, createConfig } from 'wagmi'
 import {
-	arbitrum,
-	arbitrumSepolia,
 	mainnet,
 	optimism,
-	optimismSepolia,
-	polygon,
-	polygonMumbai,
-	sepolia,
+	base,
+	baseGoerli,
 } from 'wagmi/chains'
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
 import { InjectedConnector } from 'wagmi/connectors/injected'
@@ -21,7 +17,7 @@ import { publicProvider } from 'wagmi/providers/public'
 // WalletConnect options
 const projectId = `${process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID}`
 const metadata = {
-	name: 'memes.house',
+	name: 'memes house',
 	description: 'only the best memes',
 	url: 'https://memes.house',
 	icons: ['https://avatars.githubusercontent.com/u/37784886'],
@@ -29,7 +25,7 @@ const metadata = {
 
 export const { chains, publicClient, webSocketPublicClient } = configureChains(
 	// Support several networks
-	[mainnet, polygon, arbitrum, optimism, sepolia, polygonMumbai, arbitrumSepolia, optimismSepolia],
+	[mainnet, optimism, base, baseGoerli],
 
 	// Prefer Alchemy, then Infura, then fallback
 	[
@@ -66,7 +62,7 @@ const connectors: Connector[] = [
 ]
 
 // Stitch together the wagmi config
-const wagmiConfig = createConfig({
+export const wagmiConfig = createConfig({
 	autoConnect: false,
 	connectors,
 	publicClient,
@@ -76,8 +72,6 @@ const wagmiConfig = createConfig({
 // Create WalletConnect modal
 export const usingWalletcConnect: boolean = !!projectId
 if (usingWalletcConnect) {
-	const defaultChain = sepolia
+	const defaultChain = baseGoerli
 	createWeb3Modal({ wagmiConfig, projectId, chains, defaultChain })
 }
-
-export default wagmiConfig
