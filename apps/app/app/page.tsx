@@ -30,14 +30,13 @@ export default function Home() {
 function Header() {
   return (
     <nav className="fixed top-0 left-0 w-full flex items-center justify-between p-3 z-10 bg-opacity-75 backdrop-blur-md">
-      {/* Logo with typographic for memes.house */}
-      <div className="flex items-center space-x-2 pl-10">
+      <Container ml="3">
         <Link href="/">
           <Text className={playfairDisplay.className} size={"7"} weight="medium">
             Memes House
           </Text>
         </Link>
-      </div>
+      </Container>
       {/* Connect Button */}
       <ConnectButton />
     </nav>

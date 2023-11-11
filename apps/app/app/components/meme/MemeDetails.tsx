@@ -44,7 +44,9 @@ export function MemeDetails() {
     <div className="w-fit overflow-hidden rounded-md">
       <Box height="auto" width="auto">
         <Container display="block">
-        <MemeImage />
+          <Flex direction={"row-reverse"}>
+            <Badge my="3" color="blue">MINTED</Badge></Flex>
+          <MemeImage />
           <Flex mt="3" justify="between" wrap="wrap" gap="3" direction="row">
             <Badge color="gray" className="mtb-3 gap-2">
               SOCIAL
