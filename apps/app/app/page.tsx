@@ -33,7 +33,7 @@ function Header() {
       {/* Logo with typographic for memes.house */}
       <div className="flex items-center space-x-2 pl-10">
         <Link href="/">
-          <Text className={playfairDisplay.className} size={"8"} weight="medium">
+          <Text className={playfairDisplay.className} size={"7"} weight="medium">
             Memes House
           </Text>
         </Link>
@@ -59,7 +59,6 @@ function MemeGallery() {
   return (
     <div>
       <Flex className="flex-col items-center space-y-4" direction="column" align="center" gap="1">
-        <MemeImage />
         <MemeDetails />
         <VotingOptions />
       </Flex>

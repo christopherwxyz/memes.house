@@ -8,6 +8,7 @@ import { Avatar, Badge, Box, Container, Em, Flex, Grid, Heading, Separator, Text
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faCoins, faVoteYea, faStopwatch, faEye, faChartLine, faThumbsUp, faComment } from '@fortawesome/free-solid-svg-icons';
 import VotingOptions from "@/app/components/vote/VotingOptions";
+import { MemeImage } from "@/app/components/meme/MemeImage";
 
 interface MarketData {
   0: number;
@@ -43,9 +44,10 @@ export function MemeDetails() {
     <div className="w-fit overflow-hidden rounded-md">
       <Box height="auto" width="auto">
         <Container display="block">
-          <Flex justify="between" wrap="wrap" gap="3" direction="row">
+        <MemeImage />
+          <Flex mt="3" justify="between" wrap="wrap" gap="3" direction="row">
             <Badge color="gray" className="mtb-3 gap-2">
-              SOCIAL DETAILS
+              SOCIAL
             </Badge>
             <Box>
               <Text color="gray" size="4" weight="regular" className="flex items-center gap-2">
@@ -80,7 +82,7 @@ export function MemeDetails() {
         <Container display="block">
           <Flex gap="3" wrap="wrap" justify="between">
             <Badge color="gray" className="mtb-2 gap-2">
-              VOTING DETAILS
+              VOTING
             </Badge>
             <Box height="auto">
               <Text color="gray" size="4" weight="regular" className="flex items-center gap-2">
