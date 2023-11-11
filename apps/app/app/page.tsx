@@ -3,15 +3,18 @@
 import { useEffect, useState } from "react";
 import { baseGoerli } from 'viem/chains'
 
-import { MemeCard } from "@/app/components/meme/MemeCard";
-import { VoteDetails } from "@/app/components/vote/VoteDetails";
+import { MemeDetails } from "@/app/components/meme/MemeDetails";
 import ConnectButton from "@/app/components/web3/ConnectButton";
 import VotingOptions from "@/app/components/vote/VotingOptions";
 import { Box, Container, Em, Flex, Text } from "@radix-ui/themes";
 import Link from "next/link";
+
+import { Playfair_Display } from "next/font/google";
+const playfairDisplay = Playfair_Display({ subsets: ["latin"] });
 import { Comments } from "@/app/components/comments/Comments";
 import { useAccount, useContractRead, useContractReads } from 'wagmi'
 import { InjectedConnector } from 'wagmi/connectors/injected'
+import { MemeImage } from "@/app/components/meme/MemeImage";
  
 export default function Home() {
   const { isConnected } = useAccount();
@@ -30,8 +33,8 @@ function Header() {
       {/* Logo with typographic for memes.house */}
       <div className="flex items-center space-x-2 pl-10">
         <Link href="/">
-          <Text size={"8"} weight="regular">
-            <Em>Memes House</Em>
+          <Text className={playfairDisplay.className} size={"8"} weight="medium">
+            Memes House
           </Text>
         </Link>
       </div>
@@ -47,7 +50,6 @@ function MainContent() {
       <Flex className="flex-col space-y-4" direction="column" gap="1">
         <MemeGallery />
         <Comments />
-        <VoteDetailsPanel />
       </Flex>
     </main>
   );
@@ -57,17 +59,11 @@ function MemeGallery() {
   return (
     <div>
       <Flex className="flex-col items-center space-y-4" direction="column" align="center" gap="1">
-        <MemeCard />
+        <MemeImage />
+        <MemeDetails />
         <VotingOptions />
       </Flex>
     </div>
   );
 }
 
-function VoteDetailsPanel() {
-  return (
-    <div className="flex justify-center w-full">
-      <VoteDetails />
-    </div>
-  );
-}

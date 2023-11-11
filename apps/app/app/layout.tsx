@@ -1,10 +1,9 @@
 "use client";
 import "./globals.css";
-import '@radix-ui/themes/styles.css';
-import { Inter } from "next/font/google";
-
 import { ClientProviders } from "./lib/providers";
+import '@radix-ui/themes/styles.css';
 
+import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({

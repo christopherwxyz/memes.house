@@ -2,7 +2,7 @@ import { Container, Flex } from "@radix-ui/themes";
 
 export default function VotingOptions() {
     return (
-        <Container>
+        <Container m="1" display="block">
             <Flex className="flex-col items-center space-y-4" direction="column" align="center" gap="4">
                 <Flex className="justify-center space-x-4" justify="center" gap="2">
                     {/* Emoji Buttons */}

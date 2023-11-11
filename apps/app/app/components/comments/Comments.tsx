@@ -9,7 +9,7 @@ export function Comments() {
                     style={{ backgroundColor: 'var(--dark)', borderRadius: 'var(--radius-3)' }}
                 >
                     <Text>
-                        <Em>the comments</Em>
+                        <Em></Em>
                     </Text>
                 </Box>
             </Container>
